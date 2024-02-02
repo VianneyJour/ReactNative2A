@@ -3,13 +3,15 @@ import {JokeFactory} from "./JokeFactory";
 export class Stub {
     // Element CustomJoke
     static customJokeStub = JokeFactory.createCustomJokes('[' +
-        '{"id":"1", "type":"custom", "setup":"one", "punchline":"bidule", "image":"Tata"},' +
-        '{"id":"2", "type":"custom", "setup":"two","punchline":"machin", "image":"Titi"}]'
+        '{"id":"0", "type":"custom", "setup":"pourquoi pas ça", "punchline":"bidule", "image":"Tata"},' +
+        '{"id":"1", "type":"custom", "setup":"je pense pas","punchline":"machin", "image":"Titi"}]'
     );
 
     // Element SampleJoke
     static sampleJokeStub = JokeFactory.createSampleJokes('[' +
-        '{"id":"1", "type":"custom", "setup":"Toto dans un avions", "punchline":"Toto est un salaud", "image":"Toto"},' +
-        '{"id":"2", "type":"custom", "setup":"Quoi ?","punchline":"FEUR", "image":"Chloe"}]'
+        '{"id":"0", "type":"sample", "setup":"C est l histoire de", "punchline":"non", "image":"???"},' +
+        '{"id":"1", "type":"sample", "setup":"Qu est-ce qui est","punchline":"non en faite rien", "image":"jeSaisPas"},' +
+        '{"id":"2", "type":"sample", "setup":"C est l histoire de", "punchline":"non", "image":"non"},' +
+        '{"id":"3", "type":"sample", "setup":"Qu est-ce qui est","punchline":"non en faite rien", "image":"oui"}]'
     );
 }
