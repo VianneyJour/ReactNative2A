@@ -1,4 +1,6 @@
-class CustomJoke extends Joke {
+import {Joke} from "./Joke";
+
+export class CustomJoke extends Joke {
     private _id: string;
 
     constructor(type: string, setup: string, punchline: string, image: string, ID: string) {

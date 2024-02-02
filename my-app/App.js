@@ -1,15 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
-import {StyleSheet, Switch, Text, View} from 'react-native';
+import {Button, StyleSheet, Switch, Text, View} from 'react-native';
+import { Stub } from "./Model/Stub";
+import { loadExtension } from "./extensions";
+
+// Appel à loadExtension pour charger la méthode displayDescription
+loadExtension();
+
+const dataSampleJoke = Stub.sampleJokeStub;
+const dataCustomJoke = Stub.customJokeStub;
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Switch/>
+        <Button title={"Voir les blagues"} />
+        <Switch/>
 
       <Text>Voilà une liste de blague :</Text>
+      <Text>{dataSampleJoke.displayDescription()}</Text>
+        <Text> {dataCustomJoke.displayDescription()} </Text>
 
-      <Text></Text>
-      <StatusBar style="auto" />
+        <StatusBar style="auto" />
     </View>
   );
 }

@@ -1,4 +1,6 @@
-class SampleJoke extends Joke {
+import {Joke} from "./Joke";
+
+export class SampleJoke extends Joke {
     private _id: number;
 
     constructor(type: string, setup: string, punchline: string, image: string, ID: number) {

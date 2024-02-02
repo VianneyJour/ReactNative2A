@@ -1,26 +1,30 @@
-import "CustomJoke"
-class JokeFactory {
+import {CustomJoke} from "./CustomJoke";
+import {SampleJoke} from "./SampleJoke";
+
+export class JokeFactory {
     public static createCustomJokes(jsonArray: string) : CustomJoke[]
     {
-        let tab = JSON.parse(jsonArray);  //: object
+        const tab = JSON.parse(jsonArray);  //: object
         //JSON.stringify(tab): ""
         //TOTO = '[{"setup":"..." ; ...}]'
-        let result = []
+        let result :CustomJoke[] = []
 
-        tab.forEach(function (joke) {
+        for (const joke of tab)
+        {
             result.push(new CustomJoke(joke.type, joke.setup, joke.punchline, joke.image, joke.ID));
-        });
+        }
 
         return result;
     }
 
     static createSampleJokes(jsonArray: string): SampleJoke[] {
-        let json = JSON.parse(jsonArray);
-        let result = [];
+        const json = JSON.parse(jsonArray);
+        let result :SampleJoke[] = [];
 
-        json.forEach(function (joke) {
+        for (const joke of json)
+        {
             result.push(new SampleJoke(joke.type, joke.setup, joke.punchline, joke.image, joke.id));
-        });
+        }
 
         return result;
     }

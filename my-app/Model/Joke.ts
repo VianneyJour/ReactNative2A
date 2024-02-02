@@ -1,4 +1,4 @@
-abstract class Joke {
+export abstract class Joke {
     private _type: string;
     private _setup: string;
     private _punchline: string;
