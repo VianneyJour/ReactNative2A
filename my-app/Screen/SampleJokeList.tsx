@@ -1,5 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import {Button, StyleSheet, Switch, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
 import {SampleJoke} from "../Model/SampleJoke";
 
 type SampleJokeListItemProps = {
@@ -11,6 +10,7 @@ export default function SampleJokeListItem(props: SampleJokeListItemProps) {
         <View>
             <View style={styles.container}>
                 <View style={{width: "80%"}}>
+                    <Image source={{uri: props.item.image}}/>
                     <Text style={styles.text}>{props.item.summary()}</Text>
                     <Text style={styles.chip}>blague {props.item.type}</Text>
                 </View>
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "row",
         marginHorizontal: "5%",
-        marginVertical: "5%",
+        paddingVertical: "5%",
         backgroundColor: "darkblue",
     },
     separator: {
@@ -40,10 +40,11 @@ const styles = StyleSheet.create({
     },
     text: {
         color: "white",
+        margin: "5%"
     },
     chip: {
         color: "white",
-        backgroundColor: "grey"
-
+        backgroundColor: "grey",
+        margin: "5%"
     }
 });
