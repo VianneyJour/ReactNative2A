@@ -10,7 +10,7 @@ export default function SampleJokeListItem(props: SampleJokeListItemProps) {
         <View>
             <View style={styles.container}>
                 <View style={{width: "80%"}}>
-                    <Image source={{uri: props.item.image}}/>
+                    <Image source={{uri: props.item.image}} style={styles.image}/>
                     <Text style={styles.text}>{props.item.summary()}</Text>
                     <Text style={styles.chip}>blague {props.item.type}</Text>
                 </View>
@@ -46,5 +46,9 @@ const styles = StyleSheet.create({
         color: "white",
         backgroundColor: "grey",
         margin: "5%"
+    },
+    image: {
+        height: 150,
+        width:150
     }
 });
