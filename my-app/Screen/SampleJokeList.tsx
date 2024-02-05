@@ -1,5 +1,6 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import {SampleJoke} from "../Model/SampleJoke";
+import {purpleColor} from "../assets/Theme";
 
 type SampleJokeListItemProps = {
     item: SampleJoke;
@@ -9,46 +10,48 @@ export default function SampleJokeListItem(props: SampleJokeListItemProps) {
     return (
         <View>
             <View style={styles.container}>
-                <View style={{width: "80%"}}>
-                    <Image source={{uri: props.item.image}} style={styles.image}/>
+                <View style={styles.rectangle}/>
+                <Image source={{uri: props.item.image}} style={styles.image}/>
+                <View style={styles.column}>
                     <Text style={styles.text}>{props.item.summary()}</Text>
                     <Text style={styles.chip}>blague {props.item.type}</Text>
                 </View>
             </View>
-            <View style={styles.separator}/>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         flexDirection: "row",
-        marginHorizontal: "5%",
         paddingVertical: "5%",
-        backgroundColor: "darkblue",
-    },
-    separator: {
-        marginVertical: 4,
-        backgroundColor: "rgba(255,255,255,0.3)",
-        height: 1,
-        width: '90%',
-    },
-    teaserImage: {
-        width: 50,
-        height: 50,
+        backgroundColor: purpleColor,
+        height: 150,
     },
     text: {
         color: "white",
-        margin: "5%"
+        margin: "5%",
+        flex: 1,
     },
     chip: {
+        flex: 2,
         color: "white",
         backgroundColor: "grey",
         margin: "5%"
     },
-    image: {
+    rectangle: {
+        flex: 1,
+        width: 10,
         height: 150,
-        width:150
+        backgroundColor: "darksalmon"
+    },
+    image: {
+        flex: 2,
+        height: 150,
+        width:150,
+    },
+    column: {
+        flex: 3,
+        flexDirection: "column",
     }
 });

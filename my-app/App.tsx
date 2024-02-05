@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import {Button, FlatList, StyleSheet, Switch, Text, View} from 'react-native';
+import {Button, FlatList, SafeAreaView, StyleSheet, Switch, Text, View} from 'react-native';
 import React from 'react';
-import {SafeAreaProvider} from "react-native-safe-area-context";
 
 import { Stub } from "./Model/Stub";
 import { loadExtension } from "./extensions";
 import {SampleJoke} from "./Model/SampleJoke"
 import SampleJokeListItem from "./Screen/SampleJokeList"
+import {darksalmonColor, indigoColor, purpleColor} from "./assets/Theme";
 
 // loadExtension permet de charger la méthode displayDescription
 //loadExtension();
@@ -18,11 +18,10 @@ const dataCustomJoke = Stub.customJokeStub;
 
 export default function App() {
   return (
-      <SafeAreaProvider>
-          <View style={styles.container}>
-              <Button title={"Voir les blagues"} />
-              <Switch/>
+      <SafeAreaView style={{backgroundColor: purpleColor}}>
+          <StatusBar backgroundColor={purpleColor}/>
 
+          <View style={styles.composant}>
               <Text style={styles.title}>Catalogue</Text>
 
               <FlatList data={dataSampleJoke}
@@ -30,15 +29,12 @@ export default function App() {
 
               <StatusBar style="auto" />
           </View>
-      </SafeAreaProvider>
+      </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    //backgroundColor: "#282AAC",
-    alignItems: 'center',
+  composant: {
     justifyContent: 'center',
   },
     title: {
