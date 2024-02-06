@@ -1,6 +1,6 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import {SampleJoke} from "../Model/SampleJoke";
-import {purpleColor} from "../assets/Theme";
+import {darksalmonColor, greyColor, indigoColor, purpleColor, whiteColor} from "../assets/Theme";
 
 type SampleJokeListItemProps = {
     item: SampleJoke;
@@ -14,7 +14,9 @@ export default function SampleJokeListItem(props: SampleJokeListItemProps) {
                 <Image source={{uri: props.item.image}} style={styles.image}/>
                 <View style={styles.column}>
                     <Text style={styles.text}>{props.item.summary()}</Text>
-                    <Text style={styles.chip}>blague {props.item.type}</Text>
+                    <View style={styles.chip}>
+                        <Text style={{color: whiteColor}}>blague {props.item.type}</Text>
+                    </View>
                 </View>
             </View>
         </View>
@@ -24,9 +26,26 @@ export default function SampleJokeListItem(props: SampleJokeListItemProps) {
 const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
-        paddingVertical: "5%",
-        backgroundColor: purpleColor,
+        backgroundColor: indigoColor,
         height: 150,
+        marginHorizontal: "5%",
+        marginVertical: "5%",
+    },
+    rectangle: {
+        flex: 0,
+        width: 10,
+        height: 150,
+        backgroundColor: "darksalmon"
+    },
+    image: {
+        flex: 1,
+        height: 150,
+        width:150,
+    },
+    column: {
+        flex: 2,
+        flexDirection: "column",
+        padding: 20,
     },
     text: {
         color: "white",
@@ -35,23 +54,11 @@ const styles = StyleSheet.create({
     },
     chip: {
         flex: 2,
-        color: "white",
-        backgroundColor: "grey",
-        margin: "5%"
+        alignItems: 'center',
+        backgroundColor: greyColor,
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        width: 150,
+        borderRadius: 20,
     },
-    rectangle: {
-        flex: 1,
-        width: 10,
-        height: 150,
-        backgroundColor: "darksalmon"
-    },
-    image: {
-        flex: 2,
-        height: 150,
-        width:150,
-    },
-    column: {
-        flex: 3,
-        flexDirection: "column",
-    }
 });

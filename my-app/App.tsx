@@ -18,18 +18,17 @@ const dataCustomJoke = Stub.customJokeStub;
 
 export default function App() {
   return (
-      <SafeAreaView style={{backgroundColor: purpleColor}}>
-          <StatusBar backgroundColor={purpleColor}/>
+          <SafeAreaView style={{backgroundColor: purpleColor}}>
+              <StatusBar backgroundColor={indigoColor}/>
+              <View style={styles.composant}>
+                  <Text style={styles.title}>Catalogue</Text>
 
-          <View style={styles.composant}>
-              <Text style={styles.title}>Catalogue</Text>
+                  <FlatList data={dataSampleJoke}
+                            renderItem={SampleJokeListItem}/>
 
-              <FlatList data={dataSampleJoke}
-                        renderItem={SampleJokeListItem}/>
-
-              <StatusBar style="auto" />
-          </View>
-      </SafeAreaView>
+                  <StatusBar style="auto" />
+              </View>
+          </SafeAreaView>
   );
 }
 
@@ -40,5 +39,7 @@ const styles = StyleSheet.create({
     title: {
       color: 'darksalmon',
         fontSize: 24,
+        textAlign: 'center',
+        backgroundColor: indigoColor,
     }
 });
