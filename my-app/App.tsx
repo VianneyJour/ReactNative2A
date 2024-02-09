@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import {Button, FlatList, SafeAreaView, StyleSheet, Switch, Text, View} from 'react-native';
+import {FlatList, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
 import { Stub } from "./Model/Stub";
@@ -18,8 +18,10 @@ const dataCustomJoke = Stub.customJokeStub;
 
 export default function App() {
   return (
-          <SafeAreaView style={{backgroundColor: purpleColor}}>
-              <StatusBar backgroundColor={indigoColor}/>
+      <>
+          <SafeAreaView style={{backgroundColor: indigoColor, flex:0}}/>
+          <SafeAreaView style={{backgroundColor: purpleColor, flex:1}}>
+              <StatusBar backgroundColor={indigoColor} style="light"/>
               <View style={styles.composant}>
                   <Text style={styles.title}>Catalogue</Text>
 
@@ -29,6 +31,7 @@ export default function App() {
                   <StatusBar style="auto" />
               </View>
           </SafeAreaView>
+      </>
   );
 }
 
