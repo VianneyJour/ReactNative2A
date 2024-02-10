@@ -12,6 +12,11 @@ export class Stub {
         '{"id":"0", "type":"sample", "setup":"C est l histoire de", "punchline":"non", "image":"https://99designs-blog.imgix.net/blog/wp-content/uploads/2016/03/web-images.jpg?auto=format&q=60&w=1600&h=824&fit=crop&crop=faces"},' +
         '{"id":"1", "type":"sample", "setup":"Qu est-ce qui est","punchline":"non en faite rien", "image":"https://99designs-blog.imgix.net/blog/wp-content/uploads/2016/03/web-images.jpg?auto=format&q=60&w=1600&h=824&fit=crop&crop=faces"},' +
         '{"id":"2", "type":"sample", "setup":"C est l histoire de", "punchline":"non", "image":"https://99designs-blog.imgix.net/blog/wp-content/uploads/2016/03/web-images.jpg?auto=format&q=60&w=1600&h=824&fit=crop&crop=faces"},' +
-        '{"id":"3", "type":"sample", "setup":"Qu est-ce qui est","punchline":"non en faite rien", "image":"https://99designs-blog.imgix.net/blog/wp-content/uploads/2016/03/web-images.jpg?auto=format&q=60&w=1600&h=824&fit=crop&crop=faces"}]'
+        '{"id":"3", "type":"sample", "setup":"Qu est-ce qui est","punchline":"non en faite rien", "image":"https://99designs-blog.imgix.net/blog/wp-content/uploads/2016/03/web-images.jpg?auto=format&q=60&w=1600&h=824&fit=crop&crop=faces"},' +
+        '{"id":"4", "type":"sample", "setup":"C est l histoire de", "punchline":"non", "image":"https://99designs-blog.imgix.net/blog/wp-content/uploads/2016/03/web-images.jpg?auto=format&q=60&w=1600&h=824&fit=crop&crop=faces"},' +
+        '{"id":"5", "type":"sample", "setup":"Qu est-ce qui est","punchline":"non en faite rien", "image":"https://99designs-blog.imgix.net/blog/wp-content/uploads/2016/03/web-images.jpg?auto=format&q=60&w=1600&h=824&fit=crop&crop=faces"},' +
+        '{"id":"6", "type":"sample", "setup":"C est l histoire de", "punchline":"non", "image":"https://99designs-blog.imgix.net/blog/wp-content/uploads/2016/03/web-images.jpg?auto=format&q=60&w=1600&h=824&fit=crop&crop=faces"},' +
+        '{"id":"7", "type":"sample", "setup":"Qu est-ce qui est","punchline":"non en faite rien", "image":"https://99designs-blog.imgix.net/blog/wp-content/uploads/2016/03/web-images.jpg?auto=format&q=60&w=1600&h=824&fit=crop&crop=faces"}'
+        + ']'
     );
 }

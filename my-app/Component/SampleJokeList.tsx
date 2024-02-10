@@ -55,10 +55,9 @@ const styles = StyleSheet.create({
     chip: {
         flex: 2,
         alignItems: 'center',
+        justifyContent: 'center',
         backgroundColor: greyColor,
-        paddingHorizontal: 10,
-        paddingVertical: 5,
-        width: 150,
+        width: 120,
         borderRadius: 20,
     },
 });
