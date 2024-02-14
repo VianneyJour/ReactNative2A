@@ -1,23 +1,19 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import {SampleJoke} from "../Model/SampleJoke";
+import {CustomJoke} from "../Model/CustomJoke";
 import {darksalmonColor, greyColor, indigoColor, purpleColor, whiteColor} from "../assets/Theme";
 
-type SampleJokeListItemProps = {
-    item: SampleJoke[];
+type JokeListItemProps = {
+    item: (CustomJoke | SampleJoke);
 }
 
-export default function SampleJokeListItem(props: SampleJokeListItemProps) {
+export default function SampleJokeListItem(props: JokeListItemProps) {
     return (
         <View>
             <View style={styles.container}>
                 <View style={styles.rectangle}/>
-                <Image source={{uri: props.item[1].image}} style={styles.image}/>
-                <View style={styles.column}>
-                    <Text style={styles.text}>{props.item[1].summary()}</Text>
-                    <View style={styles.chip}>
-                        <Text style={{color: whiteColor}}>blague {props.item[1].type}</Text>
-                    </View>
-                </View>
+                <Image source={{uri: props.item.image}} style={styles.image}/>
+                <Text style={styles.text}>{props.item.summary()}</Text>
             </View>
         </View>
     )
@@ -25,16 +21,17 @@ export default function SampleJokeListItem(props: SampleJokeListItemProps) {
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection: "row",
+        flexDirection: "column",
         backgroundColor: indigoColor,
         height: 150,
+        width: 150,
         marginHorizontal: "5%",
         marginVertical: "5%",
     },
     rectangle: {
         flex: 0,
-        width: 10,
-        height: 150,
+        width: 150,
+        height: 10,
         backgroundColor: "darksalmon"
     },
     image: {
@@ -42,22 +39,9 @@ const styles = StyleSheet.create({
         height: 150,
         width:150,
     },
-    column: {
-        flex: 2,
-        flexDirection: "column",
-        padding: 20,
-    },
     text: {
         color: "white",
         margin: "5%",
         flex: 1,
-    },
-    chip: {
-        flex: 2,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: greyColor,
-        width: 120,
-        borderRadius: 20,
     },
 });

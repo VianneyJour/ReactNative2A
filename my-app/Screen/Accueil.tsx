@@ -1,11 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import {Image, SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {FlatList, Image, SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
 import { Stub } from "../Model/Stub";
 import LastJokeList from '../Component/LastJokeList';
-import SampleJokeListItem from "../Component/SampleJokeList"
 import {darksalmonColor, indigoColor, purpleColor} from "../assets/Theme";
+import SampleJokeListItem from "../Component/SampleJokeList";
 
 const dataSampleJoke = Stub.sampleJokeStub;
 const dataCustomJoke = Stub.customJokeStub;
@@ -18,14 +18,9 @@ export default function App() {
             <Image source={require('../assets/icons/logo.png')} style={{alignSelf:'center'}}/>
             <Text style={styles.testChat}>Chat c'est drôle</Text>
 
-            <View style={styles.composant}>
-                <ScrollView horizontal={true} style={{padding:10}}
-                            showsHorizontalScrollIndicator={false}
-                            showsVerticalScrollIndicator={false}>
-                    
-                </ScrollView>
-            </View>
-
+            <FlatList data={dataSampleJoke}
+                      renderItem={LastJokeList}
+                      horizontal={true}/>
         </SafeAreaView>
     );
 }
