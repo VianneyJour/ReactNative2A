@@ -4,10 +4,10 @@ import {CustomJoke} from "../Model/CustomJoke";
 import {darksalmonColor, greyColor, indigoColor, purpleColor, whiteColor} from "../assets/Theme";
 
 type JokeListItemProps = {
-    item: (CustomJoke | SampleJoke);
+    item: SampleJoke;
 }
 
-export default function SampleJokeListItem(props: JokeListItemProps) {
+export default function LastJokeListItem(props: JokeListItemProps) {
     return (
         <View>
             <View style={styles.container}>
@@ -25,8 +25,8 @@ const styles = StyleSheet.create({
         backgroundColor: indigoColor,
         height: 150,
         width: 150,
-        marginHorizontal: "5%",
-        marginVertical: "5%",
+        marginHorizontal: 10,
+        marginVertical: 10,
     },
     rectangle: {
         flex: 0,

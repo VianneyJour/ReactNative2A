@@ -3,8 +3,8 @@ import {FlatList, Image, SafeAreaView, ScrollView, StyleSheet, Text, View} from 
 import React from 'react';
 
 import { Stub } from "../Model/Stub";
-import LastJokeList from '../Component/LastJokeList';
-import {darksalmonColor, indigoColor, purpleColor} from "../assets/Theme";
+import LastJokeListItem from '../Component/LastJokeList';
+import {darksalmonColor, indigoColor, purpleColor, whiteColor} from "../assets/Theme";
 import SampleJokeListItem from "../Component/SampleJokeList";
 
 const dataSampleJoke = Stub.sampleJokeStub;
@@ -18,9 +18,16 @@ export default function App() {
             <Image source={require('../assets/icons/logo.png')} style={{alignSelf:'center'}}/>
             <Text style={styles.testChat}>Chat c'est drôle</Text>
 
+            <Text>Dernières blagues</Text>
             <FlatList data={dataSampleJoke}
-                      renderItem={LastJokeList}
-                      horizontal={true}/>
+                      renderItem={LastJokeListItem}
+                      horizontal={true}
+                      showsHorizontalScrollIndicator={false}/>
+
+            <View style={{flexDirection: 'row'}}>
+                <Text>Top Catégories</Text>
+                <Image source={require('../assets/icons/fire_icon.png')}/>
+            </View>
         </SafeAreaView>
     );
 }
