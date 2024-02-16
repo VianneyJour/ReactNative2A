@@ -20,16 +20,10 @@ export default function App() {
     return (
         <SafeAreaView style={{backgroundColor: purpleColor, flex:1}}>
             <StatusBar backgroundColor={indigoColor} style="light"/>
-            <View style={styles.composant}>
+            <View style={{justifyContent: 'center'}}>
                 <FlatList data={dataSampleJoke}
                           renderItem={SampleJokeListItem}/>
             </View>
         </SafeAreaView>
     );
 }
-
-const styles = StyleSheet.create({
-    composant: {
-        justifyContent: 'center',
-    },
-});

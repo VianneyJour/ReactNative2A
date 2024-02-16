@@ -9,7 +9,7 @@ import {darksalmonColor, greyColor, indigoColor, whiteColor} from "../assets/The
 
 export default function Navigation() {
     const BottomTabNavigator = createBottomTabNavigator();
-
+    const taillePicto = 40;
     return (
         <NavigationContainer>
             <BottomTabNavigator.Navigator initialRouteName="Accueil"
@@ -25,7 +25,7 @@ export default function Navigation() {
                                                    <Image
                                                        source={require("../assets/icons/home_icon.png")}
                                                        style={{
-                                                           width: 40, height: 40,
+                                                           width: taillePicto, height: taillePicto,
                                                            tintColor: focused ? darksalmonColor : greyColor,
                                                        }}/>
                                                ),
@@ -36,7 +36,7 @@ export default function Navigation() {
                                                    <Image
                                                        source={require("../assets/icons/list_icon.png")}
                                                        style={{
-                                                           width: 40, height: 40,
+                                                           width: taillePicto, height: taillePicto,
                                                            tintColor: focused ? darksalmonColor : greyColor,
                                                        }}/>
                                                )
@@ -60,7 +60,7 @@ export default function Navigation() {
                                                    <Image
                                                        source={require("../assets/icons/favorite_icon.png")}
                                                        style={{
-                                                           width: 40, height: 40,
+                                                           width: taillePicto, height: taillePicto,
                                                            tintColor: focused ? darksalmonColor : greyColor,
                                                        }}/>
                                                )
@@ -71,7 +71,7 @@ export default function Navigation() {
                                                    <Image
                                                        source={require("../assets/icons/settings_icon.png")}
                                                        style={{
-                                                           width: 40, height: 40,
+                                                           width: taillePicto, height: taillePicto,
                                                            tintColor: focused ? darksalmonColor : greyColor,
                                                        }}/>
                                                )

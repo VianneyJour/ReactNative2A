@@ -1,6 +1,7 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import {SampleJoke} from "../Model/SampleJoke";
 import {darksalmonColor, greyColor, indigoColor, purpleColor, whiteColor} from "../assets/Theme";
+import {styles} from "../assets/Theme";
 
 type SampleJokeListItemProps = {
     item: SampleJoke;
@@ -9,8 +10,8 @@ type SampleJokeListItemProps = {
 export default function SampleJokeListItem(props: SampleJokeListItemProps) {
     return (
         <View>
-            <View style={styles.container}>
-                <View style={styles.rectangle}/>
+            <View style={styles.JokeListVertical}>
+                <View style={styles.rectangleVertical}/>
                 <Image source={{uri: props.item.image}} style={styles.image}/>
                 <View style={styles.column}>
                     <Text style={styles.text}>{props.item.summary()}</Text>
@@ -22,42 +23,3 @@ export default function SampleJokeListItem(props: SampleJokeListItemProps) {
         </View>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flexDirection: "row",
-        backgroundColor: indigoColor,
-        height: 150,
-        marginHorizontal: "5%",
-        marginVertical: "5%",
-    },
-    rectangle: {
-        flex: 0,
-        width: 10,
-        height: 150,
-        backgroundColor: "darksalmon"
-    },
-    image: {
-        flex: 1,
-        height: 150,
-        width:150,
-    },
-    column: {
-        flex: 2,
-        flexDirection: "column",
-        padding: 20,
-    },
-    text: {
-        color: "white",
-        margin: "5%",
-        flex: 1,
-    },
-    chip: {
-        flex: 2,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: greyColor,
-        width: 120,
-        borderRadius: 20,
-    },
-});
