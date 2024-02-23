@@ -3,28 +3,25 @@ import {FlatList, Image, SafeAreaView, Text, View} from 'react-native';
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
-import { Stub } from "../Model/Stub";
 import LastJokeListItem from '../Component/LastJokeList';
 import {indigoColor, purpleColor, whiteColor} from "../assets/Theme";
 import {styles} from "../assets/Theme";
 import jokeReducer from "../redux/Reducers/JokeReducer"
 
-import {getJokeList} from "../redux/Actions/JokeActions";
+import {getLastList} from "../redux/Actions/JokeActions";
 import {useEffect} from 'react';
-
-const dataSampleJoke = Stub.sampleJokeStub;
-const dataCustomJoke = Stub.customJokeStub;
 
 export default function App() {
     // @ts-ignore
-    const jokeList = useSelector(state => state.jokeReducer.jokes);
+    const LastList = useSelector(state => state.jokeReducer.lastJokes);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const loadNounours = async () => {
-            await dispatch(getJokeList());
+        const loadJoke = async () => {
+            // @ts-ignore
+            await dispatch(getLastList());
         };
-        loadNounours();
+        loadJoke();
     }, [dispatch]);
 
     return (
@@ -35,7 +32,7 @@ export default function App() {
             <Text style={styles.textChat}>Chat c'est drôle</Text>
 
             <Text style={styles.titre}>Dernières blagues</Text>
-            <FlatList data={jokeList}
+            <FlatList data={LastList}
                       renderItem={LastJokeListItem}
                       horizontal={true}
                       showsHorizontalScrollIndicator={false}
