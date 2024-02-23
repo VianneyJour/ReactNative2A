@@ -9,6 +9,9 @@ import SampleJokeListItem from "../Component/SampleJokeList"
 import {indigoColor, purpleColor} from "../assets/Theme";
 import {useDispatch, useSelector} from "react-redux";
 import {getJokeList} from "../redux/Actions/JokeActions";
+import {TouchableHighlight} from "react-native-gesture-handler";
+import {useNavigation} from "@react-navigation/native";
+import StackNavigation from "../Component/StackNavigation";
 
 // loadExtension permet de charger la méthode displayDescription
 //loadExtension();
@@ -19,6 +22,8 @@ import {getJokeList} from "../redux/Actions/JokeActions";
 //const dataCustomJoke = Stub.customJokeStub;
 
 export default function App() {
+    const navigation = useNavigation();
+
     // @ts-ignore
     const jokeList = useSelector(state => state.jokeReducer.jokes);
     const dispatch = useDispatch();
@@ -30,12 +35,17 @@ export default function App() {
         };
         loadJoke();
     }, [dispatch]);
+
     return (
         <SafeAreaView style={{backgroundColor: purpleColor, flex:1}}>
             <StatusBar backgroundColor={indigoColor} style="light"/>
             <View style={{justifyContent: 'center'}}>
                 <FlatList data={jokeList}
-                          renderItem={SampleJokeListItem}/>
+                          renderItem={({item}) =>
+                              <TouchableHighlight onPress={() => navigation.navigate("JokeDetails", {"joke": item.id.toString()})}>
+                                  <SampleJokeListItem item={item}/>
+                              </TouchableHighlight>
+                          } keyExtractor={(item: SampleJoke) => item.id.toString()}/>
             </View>
         </SafeAreaView>
     );
