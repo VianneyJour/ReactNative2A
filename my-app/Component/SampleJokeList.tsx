@@ -1,6 +1,6 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import {SampleJoke} from "../Model/SampleJoke";
-import {darksalmonColor, greyColor, indigoColor, purpleColor, whiteColor} from "../assets/Theme";
+import JokeCategory from "./JokeCategory";
 import {styles} from "../assets/Theme";
 
 type SampleJokeListItemProps = {
@@ -15,11 +15,10 @@ export default function SampleJokeListItem(props: SampleJokeListItemProps) {
                 <Image source={{uri: props.item.image}} style={styles.image}/>
                 <View style={styles.column}>
                     <Text style={styles.text}>{props.item.summary()}</Text>
-                    <View style={styles.chip}>
-                        <Text style={{color: whiteColor}}>blague {props.item.type}</Text>
-                    </View>
+                    <JokeCategory item={"blague " + props.item.type}/>
                 </View>
             </View>
         </View>
     )
 }
+

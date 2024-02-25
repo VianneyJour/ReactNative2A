@@ -1,16 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import {FlatList, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React, {useEffect} from 'react';
+import {TouchableHighlight} from "react-native-gesture-handler";
+import {useNavigation} from "@react-navigation/native";
+import {useDispatch, useSelector} from "react-redux";
+import {indigoColor, purpleColor} from "../assets/Theme";
 
 import { Stub } from "../Model/Stub";
 import { loadExtension } from "../extensions";
 import {SampleJoke} from "../Model/SampleJoke"
 import SampleJokeListItem from "../Component/SampleJokeList"
-import {indigoColor, purpleColor} from "../assets/Theme";
-import {useDispatch, useSelector} from "react-redux";
 import {getJokeList} from "../redux/Actions/JokeActions";
-import {TouchableHighlight} from "react-native-gesture-handler";
-import {useNavigation} from "@react-navigation/native";
 import StackNavigation from "../Component/StackNavigation";
 
 // loadExtension permet de charger la méthode displayDescription
@@ -42,7 +42,8 @@ export default function App() {
             <View style={{justifyContent: 'center'}}>
                 <FlatList data={jokeList}
                           renderItem={({item}) =>
-                              <TouchableHighlight onPress={() => navigation.navigate("JokeDetails", {"joke": item.id.toString()})}>
+                              // @ts-ignore
+                              <TouchableHighlight onPress={() => navigation.navigate("JokeDetails", {"jokePara": item.id.toString()})}>
                                   <SampleJokeListItem item={item}/>
                               </TouchableHighlight>
                           } keyExtractor={(item: SampleJoke) => item.id.toString()}/>

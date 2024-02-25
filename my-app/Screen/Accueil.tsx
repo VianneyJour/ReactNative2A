@@ -4,16 +4,19 @@ import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
 import LastJokeListItem from '../Component/LastJokeList';
+import JokeCategory from '../Component/JokeCategory';
 import {indigoColor, purpleColor, whiteColor} from "../assets/Theme";
 import {styles} from "../assets/Theme";
-import jokeReducer from "../redux/Reducers/JokeReducer"
 
 import {getLastList} from "../redux/Actions/JokeActions";
+import {getTopCategoriesList} from "../redux/Actions/CategoryActions";
 import {useEffect} from 'react';
 
 export default function App() {
     // @ts-ignore
     const LastList = useSelector(state => state.jokeReducer.lastJokes);
+    // @ts-ignore
+    const TopCategories = useSelector(state => state.categoryReducer.TopCategories);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -22,6 +25,12 @@ export default function App() {
             await dispatch(getLastList());
         };
         loadJoke();
+
+        const loadCategories = async () => {
+            // @ts-ignore
+            await dispatch(getTopCategoriesList());
+        };
+        loadCategories();
     }, [dispatch]);
 
     return (
@@ -43,14 +52,10 @@ export default function App() {
                 <Image source={require('../assets/icons/fire_icon.png')}/>
             </View>
 
-            <View style={{flexDirection: 'row'}}>
-                <View style={styles.chip}>
-                    <Text style={{color: whiteColor}}>SampleJoke</Text>
-                </View>
-                <View style={styles.chip}>
-                    <Text style={{color: whiteColor}}>CustomJoke</Text>
-                </View>
-            </View>
+            <FlatList data={TopCategories} renderItem={JokeCategory}
+                      horizontal={true}
+                      showsHorizontalScrollIndicator={false}
+                      style={{maxHeight: '25%'}}/>
         </SafeAreaView>
     );
 }
