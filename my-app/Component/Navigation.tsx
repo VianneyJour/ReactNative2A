@@ -5,6 +5,7 @@ import {Image, View} from 'react-native';
 
 import NavigationScreen from '../Component/StackNavigation'
 import AccueilScreen from '../Screen/Accueil'
+import CatalogueScreen from '../Screen/Catalogue'
 import {darksalmonColor, greyColor, indigoColor, whiteColor} from "../assets/Theme";
 
 export default function Navigation() {
@@ -32,6 +33,7 @@ export default function Navigation() {
                                            }}/>
                 <BottomTabNavigator.Screen name="Catalogue" component={NavigationScreen}
                                            options={{
+                                               title: 'Catalogue',
                                                tabBarIcon: ({focused}) => (
                                                    <Image
                                                        source={require("../assets/icons/list_icon.png")}
@@ -41,7 +43,7 @@ export default function Navigation() {
                                                        }}/>
                                                )
                                            }}/>
-                <BottomTabNavigator.Screen name="Ajouter" component={NavigationScreen}
+                <BottomTabNavigator.Screen name="Ajouter" component={CatalogueScreen}
                                            options={{
                                                tabBarIcon: ({focused}) => (
                                                    <View style={{backgroundColor: greyColor, borderRadius: 5, padding: 5}}>
@@ -54,7 +56,7 @@ export default function Navigation() {
                                                    </View>
                                                )
                                            }}/>
-                <BottomTabNavigator.Screen name="Favoris" component={NavigationScreen}
+                <BottomTabNavigator.Screen name="Favoris" component={CatalogueScreen}
                                            options={{
                                                tabBarIcon: ({focused}) => (
                                                    <Image
@@ -65,7 +67,7 @@ export default function Navigation() {
                                                        }}/>
                                                )
                                            }}/>
-                <BottomTabNavigator.Screen name="Paramètres" component={NavigationScreen}
+                <BottomTabNavigator.Screen name="Paramètres" component={CatalogueScreen}
                                            options={{
                                                tabBarIcon: ({focused}) => (
                                                    <Image

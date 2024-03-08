@@ -21,7 +21,7 @@ import StackNavigation from "../Component/StackNavigation";
 //const dataSampleJoke = Stub.sampleJokeStub;
 //const dataCustomJoke = Stub.customJokeStub;
 
-export default function App() {
+export default function App() : React.JSX.Element {
     const navigation = useNavigation();
 
     // @ts-ignore
@@ -43,7 +43,7 @@ export default function App() {
                 <FlatList data={jokeList}
                           renderItem={({item}) =>
                               // @ts-ignore
-                              <TouchableHighlight onPress={() => navigation.navigate("JokeDetails", {"jokePara": item.id.toString()})}>
+                              <TouchableHighlight onPress={() => navigation.navigate("JokeDetail", {"jokePara": item.id.toString()})}>
                                   <SampleJokeListItem item={item}/>
                               </TouchableHighlight>
                           } keyExtractor={(item: SampleJoke) => item.id.toString()}/>

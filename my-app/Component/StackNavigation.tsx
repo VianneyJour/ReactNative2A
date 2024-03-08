@@ -1,15 +1,14 @@
 import {createStackNavigator} from "@react-navigation/stack";
 import React from "react";
 import Catalogue from '../Screen/Catalogue'
-import JokeDetailItem from "./JokeDetail";
+import JokeDetailItem from "../Screen/JokeDetail";
 
-export default function StackNavigation() {
+export default function StackNavigation() : React.JSX.Element {
     const Stack = createStackNavigator();
-    const rout = this.route.params.jokePara;
     return (
-        <Stack.Navigator initialRouteName="Catalogue">
+        <Stack.Navigator initialRouteName="JokeList">
             <Stack.Screen name="JokeList" component={Catalogue}/>
-            <Stack.Screen name="JokeDetails" component={JokeDetailItem({route: rout})}/>
+            <Stack.Screen name="JokeDetail" component={JokeDetailItem}/>
         </Stack.Navigator>
     )
 }
