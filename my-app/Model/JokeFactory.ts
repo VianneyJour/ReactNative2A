@@ -11,7 +11,7 @@ export class JokeFactory {
 
         for (const joke of tab)
         {
-            result.push(new CustomJoke(joke.type, joke.setup, joke.punchline, joke.image, joke.ID));
+            result.push(new CustomJoke(joke.type, joke.setup, joke.punchline, joke.image, joke.id));
         }
 
         return result;

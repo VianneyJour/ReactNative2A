@@ -65,10 +65,16 @@ export const getLastList = () => {
 export const getJokeById = (id : String) => {
     return async dispatch => {
         try {
-            const jokePromise = await fetch('https://iut-weather-api.azurewebsites.net/jokes/' + id);
+            const jokePromise = await fetch('https://iut-weather-api.azurewebsites.net/jokes/samples/' + id);
             const jokeJson = await jokePromise.json();
-            const joke: Joke = jokeJson(elt => new SampleJoke(elt["type"], elt["setup"], elt["punchline"], elt["image"], elt["id"]));
-            dispatch(setJoke(joke));
+            let jokeParse = JSON.parse(JSON.stringify(jokeJson))
+            const joke = new SampleJoke(
+                jokeParse.type,
+                jokeParse.setup,
+                jokeParse.punchline,
+                jokeParse.image,
+                jokeParse.id);
+            dispatch(setJoke(joke))
         } catch (error) {
             console.log('Error---------', error);
         }

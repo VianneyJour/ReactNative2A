@@ -5,7 +5,7 @@ import {SampleJoke} from "../../Model/SampleJoke";
 import {CustomJoke} from "../../Model/CustomJoke";
 
 interface State {
-    joke: Joke,
+    joke: SampleJoke,
     jokes: Joke[],
     lastJokes: Joke[],
     favoriteJokes: Joke[],
@@ -28,7 +28,7 @@ const jokeReducer = (state: State = initialState, action: Action) => {
             return {...state, lastJokes: action.payload};
         case ActionType.FETCH_JOKE:
             // @ts-ignore
-            return {...state, joke: action.playload};
+            return {...state, joke: action.payload};
         default:
             return state;
     }
