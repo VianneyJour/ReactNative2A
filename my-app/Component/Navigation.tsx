@@ -33,7 +33,6 @@ export default function Navigation() {
                                            }}/>
                 <BottomTabNavigator.Screen name="Catalogue" component={NavigationScreen}
                                            options={{
-                                               title: 'Catalogue',
                                                tabBarIcon: ({focused}) => (
                                                    <Image
                                                        source={require("../assets/icons/list_icon.png")}
@@ -41,7 +40,8 @@ export default function Navigation() {
                                                            width: taillePicto, height: taillePicto,
                                                            tintColor: focused ? darksalmonColor : greyColor,
                                                        }}/>
-                                               )
+                                               ),
+                                               headerShown: false
                                            }}/>
                 <BottomTabNavigator.Screen name="Ajouter" component={CatalogueScreen}
                                            options={{

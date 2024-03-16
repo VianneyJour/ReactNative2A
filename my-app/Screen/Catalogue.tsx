@@ -43,7 +43,7 @@ export default function App() : React.JSX.Element {
                 <FlatList data={jokeList}
                           renderItem={({item}) =>
                               // @ts-ignore
-                              <TouchableHighlight onPress={() => navigation.navigate("JokeDetail", {"jokePara": item.id.toString()})}>
+                              <TouchableHighlight onPress={() => navigation.navigate("Détails d'une blague", {"jokePara": item.id.toString()})}>
                                   <SampleJokeListItem item={item}/>
                               </TouchableHighlight>
                           } keyExtractor={(item: SampleJoke) => item.id.toString()}/>

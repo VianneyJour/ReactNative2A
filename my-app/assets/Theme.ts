@@ -29,6 +29,18 @@ export const styles = StyleSheet.create({
         marginHorizontal: 10,
         marginVertical: 10,
     },
+    JokeDetail: {
+        flex:0,
+        margin: '2%',
+        flexDirection: "column",
+        backgroundColor: indigoColor,
+        height:500,
+        width:400,
+        borderRadius: 20,
+        borderColor: whiteColor,
+        borderWidth: 2,
+        padding: 10,
+    },
     rectangleVertical: {
         flex: 0,
         width: 10,
@@ -45,6 +57,13 @@ export const styles = StyleSheet.create({
         flex: 1,
         height: 150,
         width:150,
+    },
+    bigImage: {
+        height: 200,
+        marginTop: 15,
+        width: 350,
+        borderRadius: 20,
+        alignSelf: "center"
     },
     column: {
         flex: 2,
