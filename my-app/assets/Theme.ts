@@ -88,4 +88,11 @@ export const styles = StyleSheet.create({
         height: 50,
         borderRadius: 20,
     },
+    textInput: {
+        backgroundColor: indigoColor,
+        margin: 10,
+        padding: 10,
+        height: 100,
+        color: whiteColor
+    },
 });

@@ -6,6 +6,7 @@ import {Image, View} from 'react-native';
 import NavigationScreen from '../Component/StackNavigation'
 import AccueilScreen from '../Screen/Accueil'
 import CatalogueScreen from '../Screen/Catalogue'
+import AjoutBlague from '../Screen/AjoutBlague'
 import {darksalmonColor, greyColor, indigoColor, whiteColor} from "../assets/Theme";
 
 export default function Navigation() {
@@ -43,7 +44,7 @@ export default function Navigation() {
                                                ),
                                                headerShown: false
                                            }}/>
-                <BottomTabNavigator.Screen name="Ajouter" component={CatalogueScreen}
+                <BottomTabNavigator.Screen name="Ajout d'une blague" component={AjoutBlague}
                                            options={{
                                                tabBarIcon: ({focused}) => (
                                                    <View style={{backgroundColor: greyColor, borderRadius: 5, padding: 5}}>
