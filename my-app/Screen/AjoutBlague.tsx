@@ -8,7 +8,7 @@ import {
     SafeAreaView,
     Text,
     TextInput,
-    TouchableWithoutFeedback
+    TouchableWithoutFeedback, View
 } from "react-native";
 
 export default function App() : React.JSX.Element {
@@ -16,11 +16,12 @@ export default function App() : React.JSX.Element {
     var [chute, changementChute] = React.useState('');
     var [categorie, changementCategorie] = React.useState('');
 
+                                                                                                                        // <KeyboardAvoidingView> pour monter l'input box lors de la saisie
     return (
         <SafeAreaView style={{backgroundColor: purpleColor, flex:1}}>
             <StatusBar backgroundColor={indigoColor} style="light"/>
 
-            <area onClick={Keyboard.dismiss}>
+            <View onTouchStart={Keyboard.dismiss}>
 
             <Text style={styles.titre}>Blague</Text>
             <TextInput
@@ -42,9 +43,6 @@ export default function App() : React.JSX.Element {
                 placeholderTextColor={whiteColor}/>
 
             <Text style={styles.titre}>Catégorie</Text>
-            <KeyboardAvoidingView
-                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-                style={{flex: 1}}>
                 <TextInput
                     style={styles.textInput}
                     multiline={true}
@@ -53,8 +51,7 @@ export default function App() : React.JSX.Element {
                     maxLength={10}
                     placeholder={"Entrez la catégorie de votre blague (10 caractères maximum)"}
                     placeholderTextColor={whiteColor}/>
-            </KeyboardAvoidingView>
-            </area>
+            </View>
 
             <Button title={"créer"}/>
             <Button title={"effacer"} onPress={blague => null}/>
