@@ -10,6 +10,8 @@ import {
     TextInput,
     TouchableWithoutFeedback, View
 } from "react-native";
+import {pushCustomJoke} from "../redux/Actions/JokeActions";
+import {CustomJoke} from "../Model/CustomJoke";
 
 export default function App() : React.JSX.Element {
     var [blague, changementBlague] = React.useState('');                    // déclaration d'un getter et d'un setter avec INotifyPropertyChange
@@ -53,8 +55,12 @@ export default function App() : React.JSX.Element {
                     placeholderTextColor={whiteColor}/>
             </View>
 
-            <Button title={"créer"}/>
-            <Button title={"effacer"} onPress={blague => null}/>
+            <Button title={"créer"} onPress={
+                pushCustomJoke(new CustomJoke(categorie, blague, chute, "vide", "vide"))
+            }/>
+            <Button title={"effacer"} onPress={
+                () => (changementChute(""), changementCategorie(""), changementBlague(""))
+            }/>
         </SafeAreaView>
     );
 }

@@ -80,3 +80,25 @@ export const getJokeById = (id : String) => {
         }
     }
 }
+
+export const pushCustomJoke = (jokeC : CustomJoke) => {
+    return async () => {
+        try {
+            const jokePromise = await fetch('https://iut-weather-api.azurewebsites.net/jokes',{
+                method: 'POST',
+                headers:{
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    type: jokeC.type,
+                    setup: jokeC.setup,
+                    punchline: jokeC.punchline,
+                }),
+
+            });
+        } catch (error) {
+            console.log('Error---------', error);
+        }
+    }
+}

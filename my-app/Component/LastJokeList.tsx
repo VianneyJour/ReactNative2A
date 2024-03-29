@@ -8,11 +8,13 @@ type JokeListItemProps = {
 }
 
 export default function LastJokeListItem(props: JokeListItemProps) {
-    return (
-        <View style={styles.JokeListHorizontal}>
-            <View style={styles.rectangleHorizontal}/>
-            <Image source={{uri: props.item.image}} style={styles.image}/>
-            <Text style={styles.text}>{props.item.summary()}</Text>
-        </View>
-    )
+    if (props.item.setup != null && props.item.punchline != null) {
+        return (
+            <View style={styles.JokeListHorizontal}>
+                <View style={styles.rectangleHorizontal}/>
+                <Image source={{uri: props.item.image}} style={styles.image}/>
+                <Text style={styles.text}>{props.item.summary()}</Text>
+            </View>
+        )
+    }
 }
