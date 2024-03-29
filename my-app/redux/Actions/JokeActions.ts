@@ -41,6 +41,19 @@ export const getJokeList = () => {
         try {
             const jokePromise = await fetch('https://iut-weather-api.azurewebsites.net/jokes/samples');
             const jokeListJson = await jokePromise.json();
+            const jokeList: Joke[] = jokeListJson.map(elt => new SampleJoke(elt["type"], elt["setup"], "jsp", elt["image"], elt["id"]));
+            dispatch(setJokeList(jokeList));
+        } catch (error) {
+            console.log('Error---------', error);
+        }
+    }
+}
+
+export const getCustomJokeList = () => {
+    return async dispatch => {
+        try {
+            const jokePromise = await fetch('https://iut-weather-api.azurewebsites.net/jokes');
+            const jokeListJson = await jokePromise.json();
             const jokeList: Joke[] = jokeListJson.map(elt => new CustomJoke(elt["type"], elt["setup"], "jsp", elt["image"], elt["id"]));
             dispatch(setJokeList(jokeList));
         } catch (error) {

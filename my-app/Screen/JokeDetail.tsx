@@ -27,9 +27,13 @@ export default function App() : React.JSX.Element {
     }, [dispatch]);
 
     const [showPunchline, setShowPunchline] = useState(false);
+    const [like, setLike] = useState(false);
 
-    const buttonPress = () => {
+    const showPress = () => {
         setShowPunchline((prevShowPunchline) => !prevShowPunchline);
+    }
+    const likePress = () => {
+        setLike((prevState) => !prevState);
     }
 
     return (
@@ -41,12 +45,12 @@ export default function App() : React.JSX.Element {
                 <Text style={{color: whiteColor}}>{joke.setup}</Text>
 
                 <View style={{flexDirection: 'row'}}>
-                    <TouchableOpacity onPress={buttonPress} style={{flexDirection : "row", alignItems: "center"}}>
+                    <TouchableOpacity onPress={likePress} style={{flexDirection : "row", alignItems: "center"}}>
                         <Image
-                            source={showPunchline ? require("../assets/icons/plain_favorite_icon.png") : require("../assets/icons/favorite_icon.png")}
+                            source={like ? require("../assets/icons/plain_favorite_icon.png") : require("../assets/icons/favorite_icon.png")}
                         />
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={buttonPress} style={{flexDirection : "row", alignItems: "center"}}>
+                    <TouchableOpacity onPress={showPress} style={{flexDirection : "row", alignItems: "center"}}>
                         <Image
                             source={showPunchline ? require("../assets/icons/eye_off_icon.png") : require("../assets/icons/eye_icon.png")}
                         />

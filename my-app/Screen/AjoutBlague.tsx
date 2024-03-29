@@ -56,7 +56,8 @@ export default function App() : React.JSX.Element {
             </View>
 
             <Button title={"créer"} onPress={
-                pushCustomJoke(new CustomJoke(categorie, blague, chute, "vide", "vide"))
+                () => (pushCustomJoke(new CustomJoke(categorie, blague, chute, "vide", "vide")),
+                    changementChute(""), changementCategorie(""), changementBlague(""))
             }/>
             <Button title={"effacer"} onPress={
                 () => (changementChute(""), changementCategorie(""), changementBlague(""))
